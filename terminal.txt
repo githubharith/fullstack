@@ -1,0 +1,1023 @@
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/robotics/Videos/task-manager/task_manager/settings.py", line 8, in <module>
+    SECRET_KEY = config('SECRET_KEY')
+NameError: name 'config' is not defined
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python3 manage.py loaddata db.json
+Traceback (most recent call last):
+  File "manage.py", line 22, in <module>
+    main()
+  File "manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 382, in execute
+    settings.INSTALLED_APPS
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/conf/__init__.py", line 102, in __getattr__
+    self._setup(name)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/conf/__init__.py", line 89, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/conf/__init__.py", line 217, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/robotics/Videos/task-manager/task_manager/settings.py", line 10, in <module>
+    DEBUG =config('DEBUG', default=True,cast=bool)
+NameError: name 'config' is not defined
+robotics@robotics-Spllab-05:~/Videos/task-manager$ pip install python-decouple
+Collecting python-decouple
+  Downloading python_decouple-3.8-py3-none-any.whl (9.9 kB)
+Installing collected packages: python-decouple
+Successfully installed python-decouple-3.8
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python3 manage.py loaddata db.json
+System check identified some issues:
+
+WARNINGS:
+?: (staticfiles.W004) The directory '/home/robotics/Videos/task-manager/static' in the STATICFILES_DIRS setting does not exist.
+Traceback (most recent call last):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "manage.py", line 22, in <module>
+    main()
+  File "manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 102, in handle
+    self.loaddata(fixture_labels)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 163, in loaddata
+    self.load_label(fixture_label)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 253, in load_label
+    if self.save_obj(obj):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 209, in save_obj
+    obj.save(using=self.using)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/serializers/base.py", line 288, in save
+    models.Model.save_base(self.object, using=using, raw=True, **kwargs)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 990, in _save_table
+    updated = self._do_update(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 1054, in _do_update
+    return filtered._update(values) > 0
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1231, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1984, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: Problem installing fixture '/home/robotics/Videos/task-manager/db.json': Could not load admin.LogEntry(pk=1): relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+robotics@robotics-Spllab-05:~/Videos/task-manager$ import os
+ase_url
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+#SECRET_KEY = os.getenv('SECRET_KEY', default="dj-secret")
+SECRET_KEY = config('SECRET_KEY')
+#DEBUG = os.getenv('DEBUG', default=False)
+DEBUG =config('DEBUG', default=True,cast=bool)
+#ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default="*").split(',')
+ALLOWED_HOSTS = ['*']
+#CSRF_TRUSTED_ORIGINS = ['https://mrd-task-manager.up.railway.app']
+
+# Application definition
+INSTALLED_APPS = [
+    
+Command 'import' not found, but can be installed with:
+
+sudo apt install graphicsmagick-imagemagick-compat  # version 1.4+really1.3.35-1ubuntu0.1, or
+sudo apt install imagemagick-6.q16                  # version 8:6.9.10.23+dfsg-2.1ubuntu11.10
+sudo apt install imagemagick-6.q16hdri              # version 8:6.9.10.23+dfsg-2.1ubuntu11.10
+
+'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.corobotics@robotics-Spllab-05:~/Videos/task-manager$ from pathlib import Path
+ntrib.sessions',
+    'django.contrib.messages',
+  from: can't read /var/mail/pathlib
+  'django.contrib.staticfiles',
+    'tasks',
+    'robotics@robotics-Spllab-05:~/Videos/task-manager$ import dj_database_url
+rest_framework',
+    'storages',
+]
+
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+Command 'import' not found, but can be installed with:
+
+sudo apt install graphicsmagick-imagemagick-compat  # version 1.4+really1.3.35-1ubuntu0.1, or
+sudo apt install imagemagick-6.q16                  # version 8:6.9.10.23+dfsg-2.1ubuntu11.10
+sudo apt install imagemagick-6.q16hdri              # version 8:6.9.10.23+dfsg-2.1ubuntu11.10
+
+
+ROOT_URLCONF = 'task_manager.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backendrobotics@robotics-Spllab-05:~/Videos/task-manager$ 
+s.django.DjangoTemplates',
+        'DIRS': [BASE_Drobotics@robotics-Spllab-05:~/Videos/task-manager$ BASE_DIR = Path(__file__).resolve().parent.parent
+bash: syntax error near unexpected token `('
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+IR / 'templates'],
+        'APP_DIRS': True,
+     robotics@robotics-Spllab-05:~/Videos/task-manager$ #SECRET_KEY = os.getenv('SECRET_KEY', default="dj-secret")
+robotics@robotics-Spllab-05:~/Videos/task-manager$ SECRET_KEY = config('SECRET_KEY')
+bash: syntax error near unexpected token `('
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #DEBUG = os.getenv('DEBUG', default=False)
+robotics@robotics-Spllab-05:~/Videos/task-manager$ DEBUG =config('DEBUG', default=True,cast=bool)
+bash: syntax error near unexpected token `('
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default="*").split(',')
+robotics@robotics-Spllab-05:~/Videos/task-manager$ ALLOWED_HOSTS = ['*']
+ors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = 'task_manager.wsgi.application'
+
+# For local development
+DATABASES = {
+    'default': {
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
+}
+
+# For production
+#ALLOWED_HOSTS: command not found
+ DATABASES = {
+#     'default': dj_database_url.parobotics@robotics-Spllab-05:~/Videos/task-manager$ #CSRF_TRUSTED_ORIGINS = ['https://mrd-task-manager.up.railway.app']
+rse(os.getenv('DATABASE_URL'))
+# }
+
+# STORAGES = {robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # Application definition
+
+#     "default": {
+#         "BACKEND": "storagesrobotics@robotics-Spllab-05:~/Videos/task-manager$ INSTALLED_APPS = [
+.backends.s3boto3.S3Boto3Storage",
+#     },
+#     "staticfiles": {
+#         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+#     },
+#     "mediafiles": {
+#         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+#     },
+# }
+
+# AWS_STORAGE_BUCKET_NAME = os.getenv(
+#     'AWS_STORAGE_BUCKET_NAME', default=None)
+
+# # AWS_LOCATION = "a_folder_inside_the_bucket"
+
+# AWS_S3_ACCESS_KEY_ID = os.getenv('AWS_S3_ACCESS_KEY_ID', default=None)
+
+# AWS_S3_SECRET_ACCESS_KEY = os.getenv('AWS_S3_SECRET_ACCESS_KEY', default=None)
+
+# AWS_S3_CUSTOM_DOMAIN = os.getenv('AWS_S3_CUSTOM_DOMAIN', default=None)
+
+# AWS_S3_ENDPOINT_URL = os.getenv('AWS_S3_INSTALLED_APPS: command not found
+ENDPOINT_URL', default=None)
+
+# AWS_S3_FILE_OVERWRrobotics@robotics-Spllab-05:~/Videos/task-manager$     'django.contrib.admin',
+ITE = os.getenv('AWS_S3_FILE_OVERWRITE', default=None)
+
+# # AWS_QUERYSTRING_AUTH=os.getenv('AWS_QUERYSTRING_AUTH', default=True)
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+# Timezone and language
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_TZ = Tdjango.contrib.admin,: command not found
+rue
+
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR /robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.contrib.auth',
+ 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+# Media files (Images)
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# Default primary key field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+django.contrib.auth,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.contrib.contenttypes',
+django.contrib.contenttypes,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.contrib.sessions',
+django.contrib.sessions,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.contrib.messages',
+django.contrib.messages,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.contrib.staticfiles',
+django.contrib.staticfiles,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'tasks',
+
+Command 'tasks,' not found, did you mean:
+
+  command 'tasks' from snap tasks (1.1.0)
+  command 'tasksh' from deb tasksh (1.2.0-1build2)
+
+See 'snap info <snapname>' for additional versions.
+
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'rest_framework',
+rest_framework,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'storages',
+storages,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$ ]
+]: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ MIDDLEWARE = [
+MIDDLEWARE: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.middleware.security.SecurityMiddleware',
+django.middleware.security.SecurityMiddleware,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.contrib.sessions.middleware.SessionMiddleware',
+django.contrib.sessions.middleware.SessionMiddleware,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.middleware.common.CommonMiddleware',
+django.middleware.common.CommonMiddleware,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.middleware.csrf.CsrfViewMiddleware',
+django.middleware.csrf.CsrfViewMiddleware,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.contrib.auth.middleware.AuthenticationMiddleware',
+django.contrib.auth.middleware.AuthenticationMiddleware,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.contrib.messages.middleware.MessageMiddleware',
+django.contrib.messages.middleware.MessageMiddleware,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+django.middleware.clickjacking.XFrameOptionsMiddleware,: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$ ]
+]: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ ROOT_URLCONF = 'task_manager.urls'
+ROOT_URLCONF: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ TEMPLATES = [
+TEMPLATES: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     {
+>         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+>         'DIRS': [BASE_DIR / 'templates'],
+>         'APP_DIRS': True,
+>         'OPTIONS': {
+>             'context_processors': [
+>                 'django.template.context_processors.debug',
+>                 'django.template.context_processors.request',
+>                 'django.contrib.auth.context_processors.auth',
+>                 'django.contrib.messages.context_processors.messages',
+>             ],
+>         },
+>     },
+> ]
+> 
+> WSGI_APPLICATION = 'task_manager.wsgi.application'
+> 
+> # For local development
+> DATABASES = {
+>     'default': {
+>         'ENGINE': config('DB_ENGINE'),
+bash: syntax error near unexpected token `('
+robotics@robotics-Spllab-05:~/Videos/task-manager$         'NAME': config('DB_NAME'),
+bash: syntax error near unexpected token `('
+robotics@robotics-Spllab-05:~/Videos/task-manager$         'USER': config('DB_USER'),
+bash: syntax error near unexpected token `('
+robotics@robotics-Spllab-05:~/Videos/task-manager$         'PASSWORD': config('DB_PASSWORD'),
+bash: syntax error near unexpected token `('
+robotics@robotics-Spllab-05:~/Videos/task-manager$         'HOST': config('DB_HOST'),
+bash: syntax error near unexpected token `('
+robotics@robotics-Spllab-05:~/Videos/task-manager$         'PORT': config('DB_PORT'),
+bash: syntax error near unexpected token `('
+robotics@robotics-Spllab-05:~/Videos/task-manager$     }
+bash: syntax error near unexpected token `}'
+robotics@robotics-Spllab-05:~/Videos/task-manager$ }
+bash: syntax error near unexpected token `}'
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # For production
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # DATABASES = {
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #     'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # }
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # STORAGES = {
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #     "default": {
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #     },
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #     "staticfiles": {
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #     },
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #     "mediafiles": {
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #     },
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # }
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # AWS_STORAGE_BUCKET_NAME = os.getenv(
+robotics@robotics-Spllab-05:~/Videos/task-manager$ #     'AWS_STORAGE_BUCKET_NAME', default=None)
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # # AWS_LOCATION = "a_folder_inside_the_bucket"
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # AWS_S3_ACCESS_KEY_ID = os.getenv('AWS_S3_ACCESS_KEY_ID', default=None)
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # AWS_S3_SECRET_ACCESS_KEY = os.getenv('AWS_S3_SECRET_ACCESS_KEY', default=None)
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # AWS_S3_CUSTOM_DOMAIN = os.getenv('AWS_S3_CUSTOM_DOMAIN', default=None)
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # AWS_S3_ENDPOINT_URL = os.getenv('AWS_S3_ENDPOINT_URL', default=None)
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # AWS_S3_FILE_OVERWRITE = os.getenv('AWS_S3_FILE_OVERWRITE', default=None)
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ # # AWS_QUERYSTRING_AUTH=os.getenv('AWS_QUERYSTRING_AUTH', default=True)
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS: command not found
+robotics@robotics-Spllab-05:~/Videos/task-manager$     {
+>         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+>     },
+>     {
+>         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+>     },
+>     {
+>         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+>     },
+>     {
+>         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+>     },
+> ]
+> 
+> # Timezone and language
+> LANGUAGE_CODE = 'en-us'
+> 
+> TIME_ZONE = 'UTC'
+> 
+> USE_I18N = True
+> 
+> USE_TZ = True
+> 
+> 
+> # Static files (CSS, JavaScript, Images)
+> STATIC_URL = 'static/'
+> STATICFILES_DIRS = [BASE_DIR / 'static']
+> STATIC_ROOT = BASE_DIR / 'staticfiles'
+> 
+> 
+> # Media files (Images)
+> # MEDIA_URL = '/media/'
+> # MEDIA_ROOT = BASE_DIR / 'media'
+> 
+> 
+> # Default primary key field type
+> DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+> ^C
+robotics@robotics-Spllab-05:~/Videos/task-manager$ pip install python-decouple
+Requirement already satisfied: python-decouple in ./venv/lib/python3.8/site-packages (3.8)
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python3 manage.py loaddata db.json
+System check identified some issues:
+
+WARNINGS:
+?: (staticfiles.W004) The directory '/home/robotics/Videos/task-manager/static' in the STATICFILES_DIRS setting does not exist.
+Traceback (most recent call last):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "manage.py", line 22, in <module>
+    main()
+  File "manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 102, in handle
+    self.loaddata(fixture_labels)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 163, in loaddata
+    self.load_label(fixture_label)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 253, in load_label
+    if self.save_obj(obj):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 209, in save_obj
+    obj.save(using=self.using)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/serializers/base.py", line 288, in save
+    models.Model.save_base(self.object, using=using, raw=True, **kwargs)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 990, in _save_table
+    updated = self._do_update(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 1054, in _do_update
+    return filtered._update(values) > 0
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1231, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1984, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: Problem installing fixture '/home/robotics/Videos/task-manager/db.json': Could not load admin.LogEntry(pk=1): relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python3 manage.py loaddata db.json
+System check identified some issues:
+
+WARNINGS:
+?: (staticfiles.W004) The directory '/home/robotics/Videos/task-manager/static' in the STATICFILES_DIRS setting does not exist.
+Traceback (most recent call last):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "manage.py", line 22, in <module>
+    main()
+  File "manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 102, in handle
+    self.loaddata(fixture_labels)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 163, in loaddata
+    self.load_label(fixture_label)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 253, in load_label
+    if self.save_obj(obj):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 209, in save_obj
+    obj.save(using=self.using)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/serializers/base.py", line 288, in save
+    models.Model.save_base(self.object, using=using, raw=True, **kwargs)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 990, in _save_table
+    updated = self._do_update(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 1054, in _do_update
+    return filtered._update(values) > 0
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1231, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1984, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: Problem installing fixture '/home/robotics/Videos/task-manager/db.json': Could not load admin.LogEntry(pk=1): relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python3 manage.py loaddata db.json
+System check identified some issues:
+
+WARNINGS:
+?: (staticfiles.W004) The directory '/home/robotics/Videos/task-manager/static' in the STATICFILES_DIRS setting does not exist.
+Traceback (most recent call last):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "manage.py", line 22, in <module>
+    main()
+  File "manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 102, in handle
+    self.loaddata(fixture_labels)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 163, in loaddata
+    self.load_label(fixture_label)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 253, in load_label
+    if self.save_obj(obj):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 209, in save_obj
+    obj.save(using=self.using)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/serializers/base.py", line 288, in save
+    models.Model.save_base(self.object, using=using, raw=True, **kwargs)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 990, in _save_table
+    updated = self._do_update(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 1054, in _do_update
+    return filtered._update(values) > 0
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1231, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1984, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: Problem installing fixture '/home/robotics/Videos/task-manager/db.json': Could not load admin.LogEntry(pk=1): relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python manage.py makemigrations
+System check identified some issues:
+
+WARNINGS:
+?: (staticfiles.W004) The directory '/home/robotics/Videos/task-manager/static' in the STATICFILES_DIRS setting does not exist.
+No changes detected
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified some issues:
+
+WARNINGS:
+?: (staticfiles.W004) The directory '/home/robotics/Videos/task-manager/static' in the STATICFILES_DIRS setting does not exist.
+
+System check identified 1 issue (0 silenced).
+
+You have 22 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions, tasks.
+Run 'python manage.py migrate' to apply them.
+September 11, 2024 - 05:08:16
+Django version 4.2.5, using settings 'task_manager.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "tasks_task" does not exist
+LINE 1: ..._task"."is_complete", "tasks_task"."user_id" FROM "tasks_tas...
+                                                             ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: relation "tasks_task" does not exist
+LINE 1: ..._task"."is_complete", "tasks_task"."user_id" FROM "tasks_tas...
+                                                             ^
+[11/Sep/2024 05:29:19] "GET / HTTP/1.1" 500 210114
+Not Found: /favicon.ico
+[11/Sep/2024 05:29:19] "GET /favicon.ico HTTP/1.1" 404 2335
+[11/Sep/2024 05:29:37] "GET /admin HTTP/1.1" 301 0
+[11/Sep/2024 05:29:37] "GET /admin/ HTTP/1.1" 302 0
+[11/Sep/2024 05:29:37] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4179
+[11/Sep/2024 05:29:37] "GET /static/admin/css/base.css HTTP/1.1" 200 21207
+[11/Sep/2024 05:29:37] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[11/Sep/2024 05:29:37] "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+[11/Sep/2024 05:29:37] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18533
+[11/Sep/2024 05:29:37] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[11/Sep/2024 05:29:37] "GET /static/admin/css/login.css HTTP/1.1" 200 958
+[11/Sep/2024 05:29:37] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+^Crobotics@robotics-Spllab-05:~/Videos/task-manager$ python3 manage.py loaddata db.json
+System check identified some issues:
+
+WARNINGS:
+?: (staticfiles.W004) The directory '/home/robotics/Videos/task-manager/static' in the STATICFILES_DIRS setting does not exist.
+Traceback (most recent call last):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "manage.py", line 22, in <module>
+    main()
+  File "manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 102, in handle
+    self.loaddata(fixture_labels)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 163, in loaddata
+    self.load_label(fixture_label)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 253, in load_label
+    if self.save_obj(obj):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 209, in save_obj
+    obj.save(using=self.using)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/serializers/base.py", line 288, in save
+    models.Model.save_base(self.object, using=using, raw=True, **kwargs)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 990, in _save_table
+    updated = self._do_update(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 1054, in _do_update
+    return filtered._update(values) > 0
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1231, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1984, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: Problem installing fixture '/home/robotics/Videos/task-manager/db.json': Could not load admin.LogEntry(pk=1): relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+robotics@robotics-Spllab-05:~/Videos/task-manager$ mkdir -p /home/robotics/Videos/task-manager/static
+robotics@robotics-Spllab-05:~/Videos/task-manager$ 
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python3 manage.py loaddata db.json
+Traceback (most recent call last):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+psycopg.errors.UndefinedTable: relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "manage.py", line 22, in <module>
+    main()
+  File "manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/__init__.py", line 436, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 412, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/base.py", line 458, in execute
+    output = self.handle(*args, **options)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 102, in handle
+    self.loaddata(fixture_labels)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 163, in loaddata
+    self.load_label(fixture_label)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 253, in load_label
+    if self.save_obj(obj):
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/management/commands/loaddata.py", line 209, in save_obj
+    obj.save(using=self.using)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/core/serializers/base.py", line 288, in save
+    models.Model.save_base(self.object, using=using, raw=True, **kwargs)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 990, in _save_table
+    updated = self._do_update(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/base.py", line 1054, in _do_update
+    return filtered._update(values) > 0
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/query.py", line 1231, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1984, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/robotics/Videos/task-manager/venv/lib/python3.8/site-packages/psycopg/cursor.py", line 737, in execute
+    raise ex.with_traceback(None)
+django.db.utils.ProgrammingError: Problem installing fixture '/home/robotics/Videos/task-manager/db.json': Could not load admin.LogEntry(pk=1): relation "django_admin_log" does not exist
+LINE 1: UPDATE "django_admin_log" SET "action_time" = '2023-09-18 10...
+               ^
+robotics@robotics-Spllab-05:~/Videos/task-manager$ ^C
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python3 manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, tasks
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+  Applying tasks.0001_initial... OK
+  Applying tasks.0002_task_user... OK
+  Applying tasks.0003_rename_user_task_user_id_task_username... OK
+  Applying tasks.0004_rename_user_id_task_user_remove_task_username... OK
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python3 manage.py loaddata db.json
+Installed 122 object(s) from 1 fixture(s)
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python manage.py makemigrations
+No changes detected
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, tasks
+Running migrations:
+  No migrations to apply.
+robotics@robotics-Spllab-05:~/Videos/task-manager$ python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+September 11, 2024 - 05:41:02
+Django version 4.2.5, using settings 'task_manager.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+[11/Sep/2024 05:41:09] "GET / HTTP/1.1" 200 11071
+Not Found: /photos/pro_uvmwgTp.png
+Not Found: /photos/pro_CAiK9RN.png
+Not Found: /photos/algo.png
+Not Found: /photos/pro_Lu3Sdld.png
+[11/Sep/2024 05:41:09] "GET /photos/pro_CAiK9RN.png HTTP/1.1" 404 2368
+Not Found: /photos/python_mtyrcfe.png
+[11/Sep/2024 05:41:09] "GET /photos/pro_uvmwgTp.png HTTP/1.1" 404 2368
+Not Found: /photos/python_PQnnEny.png
+[11/Sep/2024 05:41:09] "GET /photos/algo.png HTTP/1.1" 404 2347
+[11/Sep/2024 05:41:09] "GET /photos/pro_Lu3Sdld.png HTTP/1.1" 404 2368
+[11/Sep/2024 05:41:09] "GET /photos/python_mtyrcfe.png HTTP/1.1" 404 2377
+[11/Sep/2024 05:41:09] "GET /photos/python_PQnnEny.png HTTP/1.1" 404 2377
+Not Found: /photos/algo_yBWZPsP.png
+[11/Sep/2024 05:41:09] "GET /photos/algo_yBWZPsP.png HTTP/1.1" 404 2371
+Not Found: /photos/c_Ll19OSq.png
+Not Found: /photos/dsa_MIJjtsh.png
+[11/Sep/2024 05:41:09] "GET /photos/c_Ll19OSq.png HTTP/1.1" 404 2362
+Not Found: /photos/flower.jpg
+[11/Sep/2024 05:41:09] "GET /photos/dsa_MIJjtsh.png HTTP/1.1" 404 2368
+[11/Sep/2024 05:41:09] "GET /photos/flower.jpg HTTP/1.1" 404 2353
+Not Found: /photos/pro_LwkyWlY.png
+[11/Sep/2024 05:41:09] "GET /photos/pro_LwkyWlY.png HTTP/1.1" 404 2368
+Not Found: /photos/pro_kvT89uI.png
+[11/Sep/2024 05:41:09] "GET /photos/pro_kvT89uI.png HTTP/1.1" 404 2368
+Not Found: /photos/problem.png
+[11/Sep/2024 05:41:09] "GET /photos/problem.png HTTP/1.1" 404 2356
+Not Found: /photos/pro_BgyKKD3.png
+Not Found: /photos/c.png
+[11/Sep/2024 05:41:09] "GET /photos/pro_BgyKKD3.png HTTP/1.1" 404 2368
+Not Found: /photos/algo_h7dOaHI.png
+[11/Sep/2024 05:41:09] "GET /photos/c.png HTTP/1.1" 404 2338
+Not Found: /photos/dsa_CSbojET.png
+[11/Sep/2024 05:41:09] "GET /photos/algo_h7dOaHI.png HTTP/1.1" 404 2371
+[11/Sep/2024 05:41:09] "GET /photos/dsa_CSbojET.png HTTP/1.1" 404 2368
+[11/Sep/2024 05:41:09] "GET /static/images/favicon.png HTTP/1.1" 404 1813
+[11/Sep/2024 05:41:20] "GET /admin/ HTTP/1.1" 302 0
+[11/Sep/2024 05:41:20] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4179
+[11/Sep/2024 05:41:20] "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[11/Sep/2024 05:41:20] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[11/Sep/2024 05:41:20] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[11/Sep/2024 05:41:20] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[11/Sep/2024 05:41:20] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[11/Sep/2024 05:41:20] "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[11/Sep/2024 05:41:20] "GET /static/admin/css/login.css HTTP/1.1" 304 0
+[11/Sep/2024 05:41:26] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[11/Sep/2024 05:41:26] "GET /admin/ HTTP/1.1" 200 6595
+[11/Sep/2024 05:41:27] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[11/Sep/2024 05:41:27] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[11/Sep/2024 05:41:27] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[11/Sep/2024 05:41:32] "GET /admin/tasks/photo/ HTTP/1.1" 200 18663
+[11/Sep/2024 05:41:32] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[11/Sep/2024 05:41:32] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+[11/Sep/2024 05:41:32] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+[11/Sep/2024 05:41:32] "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+[11/Sep/2024 05:41:32] "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+[11/Sep/2024 05:41:32] "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+[11/Sep/2024 05:41:32] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[11/Sep/2024 05:41:32] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+[11/Sep/2024 05:41:32] "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[11/Sep/2024 05:41:32] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+[11/Sep/2024 05:41:32] "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+[11/Sep/2024 05:41:32] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[11/Sep/2024 05:41:49] "GET /admin/tasks/task/ HTTP/1.1" 200 19808
+[11/Sep/2024 05:41:49] "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[11/Sep/2024 05:41:49] "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[11/Sep/2024 05:41:49] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[11/Sep/2024 05:41:49] "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[11/Sep/2024 05:41:53] "GET /admin/tasks/task/add/ HTTP/1.1" 200 16643
+[11/Sep/2024 05:41:53] "GET /static/admin/css/forms.css HTTP/1.1" 200 9047
+[11/Sep/2024 05:41:53] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+[11/Sep/2024 05:41:53] "GET /static/admin/js/calendar.js HTTP/1.1" 200 8466
+[11/Sep/2024 05:41:53] "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+[11/Sep/2024 05:41:53] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[11/Sep/2024 05:41:53] "GET /static/admin/js/inlines.js HTTP/1.1" 200 15526
+[11/Sep/2024 05:41:53] "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+[11/Sep/2024 05:41:53] "GET /static/admin/css/widgets.css HTTP/1.1" 200 11900
+[11/Sep/2024 05:41:53] "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+[11/Sep/2024 05:41:53] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[11/Sep/2024 05:41:53] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[11/Sep/2024 05:41:53] "GET /static/admin/img/inline-delete.svg HTTP/1.1" 200 560
+mkdir -p /home/robotics/Videos/task-manager/static
+  
